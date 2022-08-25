@@ -17,8 +17,14 @@ import springfox.documentation.spi.service.contexts.SecurityContext;
 import springfox.documentation.spring.web.plugins.Docket;
 import springfox.documentation.swagger2.annotations.EnableSwagger2;
 
-@Component
-@EnableSwagger2
+@Component																		/*Anotação genérica para qualquer componente gerenciado pelo Spring. 
+																				Esta anotação faz com que o bean registrado no Spring 
+																				possa ser utilizado em qualquer bean, seja ele um 
+																				serviço, um DAO, um controller, etc.*/
+
+@EnableSwagger2																	/*Com essa anotação o Swagger é ativado. 
+																				  E Docket, logo abaixo, que está defindo no bean nos permite
+																				  configurar aspectos dos endpoints expostos por ele.*/
 public class SwaggerConfig {
 
     @Bean

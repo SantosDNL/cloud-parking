@@ -10,7 +10,9 @@ import one.digitalinnovation.parking.controller.dto.ParkingCreateDTO;
 import one.digitalinnovation.parking.controller.dto.ParkingDTO;
 import one.digitalinnovation.parking.model.Parking;
 
-@Component
+@Component																	/*A annotation básica que indica que uma classe vai ser gerenciada 
+																			  pelo container do Spring. Todas as annotations descritas acima 
+																			  são, na verdade, derivadas de @Component.*/
 public class ParkingMapper {
 
     private static final ModelMapper MODEL_MAPPER = new ModelMapper();

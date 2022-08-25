@@ -12,7 +12,13 @@ import one.digitalinnovation.parking.exception.ParkingNotFoundException;
 import one.digitalinnovation.parking.model.Parking;
 import one.digitalinnovation.parking.repository.ParkingRepository;
 
-@Service
+@Service																		/*Associada com classes que representam a ideia do Service do 
+																				  Domain Driven Design. Para ficar menos teórico pense em classes 
+																				  que representam algum fluxo de negócio da sua aplicação. 
+																				  Por exemplo, um fluxo de finalização de compra envolve 
+																				  atualizar manipular o carrinho, enviar email, processar 
+																				  pagamento etc. Este é o típico código que temos dificuldade 
+																				  de saber onde vamos colocar, em geral ele pode ficar num Service*/
 public class ParkingService {
 
     private final ParkingRepository parkingRepository;
@@ -21,7 +27,10 @@ public class ParkingService {
         this.parkingRepository = parkingRepository;
     }
 
-    @Transactional(readOnly = true, propagation = Propagation.SUPPORTS)
+    @Transactional(readOnly = true, propagation = Propagation.SUPPORTS)		 	/*trabalha dentro do escopo de uma transação no banco de dados,  
+    																			  a transação do banco de dados ocorre dentro do PersistenceContext, 
+    																			  que por sua vez, está dentro do EntityManager que é 
+    																			  implementado usando Hibernate Session (quando você está usando o Hibernate como container).*/
     public List<Parking> findAll() {
         return parkingRepository.findAll();
     }

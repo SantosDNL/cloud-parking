@@ -5,6 +5,6 @@ import org.springframework.stereotype.Repository;
 
 import one.digitalinnovation.parking.model.Parking;
 
-@Repository
+@Repository																		/*Associada com classes que isolam o acesso aos dados da sua aplicação.*/
 public interface ParkingRepository extends JpaRepository<Parking, String> {
 }

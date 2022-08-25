@@ -35,7 +35,7 @@ public class ParkingController {
     }
 
     @GetMapping
-    @ApiOperation("Find all parkings")
+    @ApiOperation("Find all parkings")														/*anotação usada para descrever o endpoint*/
     public ResponseEntity<List<ParkingDTO>> findAll() {
         List<Parking> parkingList = parkingService.findAll();
         List<ParkingDTO> result = parkingMapper.toParkingDTOList(parkingList);
@@ -43,7 +43,10 @@ public class ParkingController {
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<ParkingDTO> findById(@PathVariable String id) {
+    public ResponseEntity<ParkingDTO> findById(@PathVariable String id) {					/*é utilizado quando o valor da variável é passada 
+    																						  diretamente na URL, mas não como um parametro que 
+    																						  você passa após o sinal de interrogação (?) mas 
+    																						  sim quando o valor faz parte da url.*/
         Parking parking = parkingService.findById(id);
         ParkingDTO result = parkingMapper.toParkingDTO(parking);
         return ResponseEntity.ok(result);
