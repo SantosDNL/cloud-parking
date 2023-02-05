@@ -10,14 +10,11 @@ import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 
-@Configuration																		/*É uma annotation que indica que determinada classe possui 
-																					  métodos que expõe novos beans*/
-@EnableWebSecurity																	/*Acrescente a notação @EnableWebSecurity para ter as
-																					  configurações do Spring Security.*/
+@Configuration
+@EnableWebSecurity
 public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 
-    @Override																		/*Essa notação é uma forma de garantir que você está
-    																				  sobrescrevendo um método e não criando um novo.*/
+    @Override
     //Configurar o login do usuario
     protected void configure(AuthenticationManagerBuilder auth) throws Exception {
         auth.inMemoryAuthentication()
@@ -48,10 +45,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
                 .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS);
     }
 
-    @Bean																	/*Anotação utilizada em cima dos métodos de uma classe, geralmente
-    																		marcada com @Configuration, indicando que o Spring deve invocar 
-    																		aquele método e gerenciar o objeto retornado por ele. Ou seja,
-    																	    agora este objeto pode ser injetado em qualquer ponto da sua aplicação.*/
+    @Bean
     public PasswordEncoder passwordEncoder() {
         return new BCryptPasswordEncoder();
     }
